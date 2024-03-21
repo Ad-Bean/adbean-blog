@@ -49,8 +49,8 @@ theme = "LoveIt"
       title = "Adbean's Blog"
       svgFavicon = "/Owl.ico"
   [params.social]
-    GitHub = "https://github.com/ad-bean"
-    Linkedin = "https://www.linkedin.com/in/yuxuan-liao-adbean/"
+    GitHub = "ad-bean"
+    Linkedin = "yuxuan-liao-adbean"
     Email = "adbeanx@outlook.com"
   [params.home.posts]
     enable = true
