@@ -376,6 +376,8 @@ pub fn get(&self, key: &[u8]) -> Result<Option<Bytes>> {
 - 为什么 store 和 probe memtables 的顺序很重要，如果一个 key 在多个 memtables，应该返回哪个版本的 value？
 
 > 最先访问应该是内存中的 memtable，然后从 imm_memtable 从第一个开始探测（第一个是最新的），所以返回的也是最新的 latest version
+>
+> 后面的一些题目留着之后写完有个全面认识再来看看，对 Rust, LSM 以及多线程编程还是不太熟悉，写起来有些吃力
 
 - Is the memory layout of the memtable efficient / does it have good data locality? (Think of how `Byte` is implemented and stored in the skiplist...) What are the possible optimizations to make the memtable more efficient?
 
