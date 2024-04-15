@@ -1,5 +1,5 @@
 +++
-title = 'Mini-LSM Week 1 Da2'
+title = 'Mini-LSM Week 1 Day2'
 date = 2024-03-23T16:51:28-04:00
 draft = false
 tags = ['Database', 'LSM']
