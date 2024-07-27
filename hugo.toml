@@ -61,8 +61,7 @@ theme = "LoveIt"
     defaultHiddenFromHomePage = false
   [params.search]
     enable = true
-    # 搜索引擎的类型 ["lunr", "algolia"]
-    type = "lunr"
+    type = "algolia" # 搜索引擎的类型 ["lunr", "algolia"]
     # 文章内容最长索引长度
     contentLength = 4000
     # 搜索框的占位提示语
@@ -76,9 +75,9 @@ theme = "LoveIt"
     # LoveIt 新增 | 0.2.4 是否在搜索索引中使用基于 baseURL 的绝对路径
     absoluteURL = false
     [params.search.algolia]
-      index = ""
-      appID = ""
-      searchKey = ""
+      index = "blog"
+      appID = "OKDXG1V1ML"
+      searchKey = "d36cbd4755f8bf0c3fc49bb46f4b8f8a"
 [menu]
   [[menu.main]]
     identifier = "main"

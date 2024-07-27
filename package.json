@@ -1,0 +1,8 @@
+{
+	"scripts": {
+		"index": "hugo-algolia2 -i \"content/posts/**\" -o public/my-index.json"
+	},
+	"dependencies": {
+		"hugo-algolia2": "^1.0.8"
+	}
+}
