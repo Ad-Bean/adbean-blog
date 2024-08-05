@@ -50,4 +50,12 @@ key_len 和 value_len 都是 2 个字节，所以最长长度为 $2^16 = 65535$�
 
 block 具有大小限制 `target_size`，除非第一个 key-value pair 超过了 block size，不然你需要保证编码后的 block size 小于或等于 `target_size` (提供的代码里，`target_size` 与 `block_size` 本质一样)
 
-当 `build` 被调用时，`BlockBuilder` 会产生 data part 和 unencoded entry offsets。
+当 `build` 被调用时，`BlockBuilder` 会产生 data part 和 unencoded entry offsets。信息会被存在 `Block` 结构中，key-value entries 使用 raw 格式，offsets 用单独的 vector，这减少了解码数据时不必要的内存分配和处理开销，你只需要简单地拷贝 raw block data 到 `data` vector 并且每 2 个 bytes 进行 decode entry offsets，而不是创建 `Vec<(Vec<u8>, Vec<u8>)>` 这样的结构，在一个 block 和内存中去存所有的 key-value pairs。这样 compact memory layout 更高效。
+
+在 `Block::encode` 和 `Block::decode`，你需要按照上述的结构 encode/decode block
+
+## Task 2: Block Iterator
+
+`src/block/iterator.rs`，这一小节，因为有了 encoded block，需要实现 `BlockIterator` 接口，使得用户可以 lookup/scan blocks 里的 keys。
+
+`BlockIterator` 可以被 `Arc<Block>` 实现
