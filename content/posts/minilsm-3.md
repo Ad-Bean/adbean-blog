@@ -52,10 +52,55 @@ block 具有大小限制 `target_size`，除非第一个 key-value pair 超过�
 
 当 `build` 被调用时，`BlockBuilder` 会产生 data part 和 unencoded entry offsets。信息会被存在 `Block` 结构中，key-value entries 使用 raw 格式，offsets 用单独的 vector，这减少了解码数据时不必要的内存分配和处理开销，你只需要简单地拷贝 raw block data 到 `data` vector 并且每 2 个 bytes 进行 decode entry offsets，而不是创建 `Vec<(Vec<u8>, Vec<u8>)>` 这样的结构，在一个 block 和内存中去存所有的 key-value pairs。这样 compact memory layout 更高效。
 
-在 `Block::encode` 和 `Block::decode`，你需要按照上述的结构 encode/decode block
+在 `Block::encode` 和 `Block::decode`，你需要按照上述的结构 encode/decode block.
+
+## Task 1: Solution
+
+查看 `src/block/builder.rs` 观察 Block 结构体，`offsets Vec<u16>` 偏移量， `data vec<u8>` kv 数据等等，具有 `new(block_size: usize) -> Self`, `add(&mut self, key: KeySlice, value: &[u8]) -> bool`, `is_empty(&self) -> bool` 和 `build(self) -> Block` 方法。
+
+```Rust
+/// Builds a block.
+pub struct BlockBuilder {
+    /// Offsets of each key-value entries.
+    offsets: Vec<u16>,
+    /// All serialized key-value pairs in the block.
+    data: Vec<u8>,
+    /// The expected block size.
+    block_size: usize,
+    /// The first key in the block
+    first_key: KeyVec,
+}
+
+/// Creates a new block builder.
+pub fn new(block_size: usize) -> Self {
+    Slef {
+        offsets: Vec::new(),
+        data: Vec::new(),
+        block_size,
+        first_key: KeyVec::new(),
+    }
+}
+```
+
+先实现 `new(block_size)` 方法创建一个 `BlockBuilder` 结构体，然后实现 `add` 添加一个 key-value 值函数：
+
+```Rust
+
+```
 
 ## Task 2: Block Iterator
 
 `src/block/iterator.rs`，这一小节，因为有了 encoded block，需要实现 `BlockIterator` 接口，使得用户可以 lookup/scan blocks 里的 keys。
 
-`BlockIterator` 可以被 `Arc<Block>` 实现
+`BlockIterator` 可以被 `Arc<Block>` 实现，如果 `create_and_seek_to_first` 被调用，它会放在 block 的第一个 key。如果 `create_and_seek_to_key` 被调用，iterator 会被放在第一个 `>=` 大于等于相应 key 的位置，比如 `1, 3, 5` 在一个 Block 时
+
+```rust
+let mut iter = BlockIterator::create_and_seek_to_key(block, b"2"); // 创建 key 2
+assert_eq!(iter.key(), b"3"); // 此时 iterator 位置在第一个大于等于 2 的位置即 3 的位置
+```
+
+上面的 `seek 2` 将使迭代器定位在下一个可用键 `2`，在本例中为 `3`。
+
+iterator 应该从 block 拷贝 `key` 并且存到 iterator 本身（未来会有 key compression 压缩的内容），对于值 value，必须在 iterator 存储起始/结束 begin/end offset 偏移，并且不能拷贝。
+
+当 `next` 被调用，iterator 会移动到下一个位置。如果抵达 block 结束位置，可以设置 `key` 为空然后从 `is_valid` 返回 `false`，这样调用者可以切换到另外的 block。
