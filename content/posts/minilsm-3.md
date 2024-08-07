@@ -73,7 +73,7 @@ pub struct BlockBuilder {
 
 /// Creates a new block builder.
 pub fn new(block_size: usize) -> Self {
-    Slef {
+    Self {
         offsets: Vec::new(),
         data: Vec::new(),
         block_size,
@@ -82,11 +82,70 @@ pub fn new(block_size: usize) -> Self {
 }
 ```
 
-先实现 `new(block_size)` 方法创建一个 `BlockBuilder` 结构体，然后实现 `add` 添加一个 key-value 值函数：
+先实现 `new(block_size)` 方法创建一个 `BlockBuilder` 结构体，需要注意这里使用了 `bytes::BufMut` 库，`BufMut` 是 `bytes` 库中的一个 `trait`，它定义了一些方法来操作可变的字节缓冲区。通过实现 BufMut，你可以为自定义类型添加一些方便的方法来操作字节数据。
+
+`BufMut trait` 中定义了一个 `put` 方法，用于将数据写入缓冲区。这个方法可以用于多种类型，包括 `u8`、`&[u8]`、`&str` 等。此时 `Vec` 使用 `put` 也更合理，持批量写入缓冲区，减少内存复制。
+
+然后实现 `add` 函数，向 Block 添加一个 key-value 值，首先需要知道数据的 offset 即存放的位置 `self.data.len()`，然后按照格式 `key_len key value_len value` 存入数据：
 
 ```Rust
+/// Adds a key-value pair to the block. Returns false when the block is full.
+#[must_use]
+pub fn add(&mut self, key: KeySlice, value: &[u8]) -> bool {
+    self.offsets.push(self.data.len() as u16);
+    self.data.put_u16(key.len() as u16);
+    self.data.put(key.into_inner());
+    self.data.put_u16(value.len() as u16);
+    self.data.put(value);
+    true
+}
 
+/// Check if there is no key-value pair in the block.
+pub fn is_empty(&self) -> bool {
+    self.offsets.is_empty()
+}
+
+/// Finalize the block.
+pub fn build(self) -> Block {
+    Block {
+        offsets: self.offsets,
+        data: self.data,
+    }
+}
 ```
+
+所以检查 `Block::is_empty` 是否为空就很简单了，只需要检查 `offset` 数组是不是空的，同时 `build` 就直接返回当前的 `Block` 带上 `offset` 和 `data`
+
+然后实现 `Block::encode` 编码数据，按照 `data offset` 这种编码格式 encode，即教程中的 _拷贝 raw block data 到 data vector 并且每 2 个 bytes 进行 decode entry offsets_，由于此时的 data 是 `Vec<u8>` 类型，需要转成 `Bytes` 返回，可以直接使用 `.into()` 方法。但是教程提到只需要一个 `Vec<u8>`，所以需要将 `offsets` 也塞到 `data` 里去：
+
+```Rust
+impl Block {
+    /// Encode the internal data to the data layout illustrated in the tutorial
+    /// Note: You may want to recheck if any of the expected field is missing from your output
+    pub fn encode(&self) -> Bytes {
+        let mut buf = self.data.clone();
+        for offset in &self.offsets {
+            buf.put_u16(*offset);
+        }
+        // num of elements
+        buf.put_u16(self.offsets.len() as u16);
+        buf.into()
+    }
+
+    /// Decode from the data layout, transform the input `data` to a single `Block`
+    pub fn decode(data: &[u8]) -> Self {
+        let offsets_len = (&data[data.len() - 2..data.len()]).get_u16() as usize;
+        let offsets = (&data[data.len() - 2 - offsets_len * 2..data.len() - 2])
+            .chunks(2)
+            .map(|mut chunk| chunk.get_u16())
+            .collect();
+        let data = data[..data.len() - 2 - offsets_len * 2].to_vec();
+        Self { data, offsets }
+    }
+}
+```
+
+相应的，`decode` 也是从一个 `data: &[u8]` 取得所有的 `data` 和相应的 `offset`，从缓冲区最后一个 `u16` 可以获得 `offset` 数组的长度
 
 ## Task 2: Block Iterator
 
