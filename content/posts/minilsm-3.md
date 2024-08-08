@@ -1,5 +1,5 @@
 +++
-title = 'Minilsm 3'
+title = 'Mini-LSM Week 1 Day3'
 date = 2024-07-27T22:10:57+08:00
 draft = false
 tags = ['Database', 'LSM']
@@ -19,14 +19,14 @@ SST 由多个 blocks 组成，当 memtables 的数量超过了 system limit，�
 
 需要修改的文件：
 
-```
+```Bash
 src/block/builder.rs
 src/block.rs
 ```
 
 教程的 block 的编码格式为：
 
-```
+```Bash
 ----------------------------------------------------------------------------------------------------
 |             Data Section             |              Offset Section             |      Extra      |
 ----------------------------------------------------------------------------------------------------
@@ -37,7 +37,7 @@ src/block.rs
 
 每个 Entry 是 key-value 对：
 
-```
+```Bash
 -----------------------------------------------------------------------
 |                           Entry #1                            | ... |
 -----------------------------------------------------------------------
@@ -86,17 +86,30 @@ pub fn new(block_size: usize) -> Self {
 
 `BufMut trait` 中定义了一个 `put` 方法，用于将数据写入缓冲区。这个方法可以用于多种类型，包括 `u8`、`&[u8]`、`&str` 等。此时 `Vec` 使用 `put` 也更合理，持批量写入缓冲区，减少内存复制。
 
-然后实现 `add` 函数，向 Block 添加一个 key-value 值，首先需要知道数据的 offset 即存放的位置 `self.data.len()`，然后按照格式 `key_len key value_len value` 存入数据：
+然后实现 `add` 函数，向 Block 添加一个 key-value 值，首先需要知道数据的 offset 即存放的位置 `self.data.len()`，然后按照格式 `key_len key value_len value` 存入数据。但需要注意判断当前编码后的 Block 是否超过了 `block_size`（注意：除非第一个 key-value pair 超过了 block size）：
 
 ```Rust
 /// Adds a key-value pair to the block. Returns false when the block is full.
 #[must_use]
 pub fn add(&mut self, key: KeySlice, value: &[u8]) -> bool {
-    self.offsets.push(self.data.len() as u16);
+    // data: [u8] | offsets: [u16] | num of elements: u16
+    if !self.is_empty() && /* can store one large key */
+    self.data.len() + self.offsets.len() * 2 + 2 +  /* current encode */
+    key.len() + 2 + value.len() + 2 + 2 /* key_len: 2b | key: keylen | value_len: 2b | value: val_len + offset */
+    > self.block_size
+    {
+        return false;
+    }
+
+    if self.offsets.is_empty() {
+        self.first_key = key.to_key_vec();
+    }
     self.data.put_u16(key.len() as u16);
     self.data.put(key.into_inner());
     self.data.put_u16(value.len() as u16);
     self.data.put(value);
+
+    self.offsets.push(self.data.len() as u16);
     true
 }
 
@@ -146,6 +159,8 @@ impl Block {
 ```
 
 相应的，`decode` 也是从一个 `data: &[u8]` 取得所有的 `data` 和相应的 `offset`，从缓冲区最后一个 `u16` 可以获得 `offset` 数组的长度
+
+> 代码里的所有 2 都是 u16 的长度，更规范应该使用常量来表示，比如 `pub(crate) const SIZEOF_U16: usize = std::mem::size_of::<u16>();`
 
 ## Task 2: Block Iterator
 
