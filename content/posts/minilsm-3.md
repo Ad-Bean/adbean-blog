@@ -164,7 +164,7 @@ impl Block {
 
 ## Task 2: Block Iterator
 
-`src/block/iterator.rs`，这一小节，因为有了 encoded block，需要实现 `BlockIterator` 接口，使得用户可以 lookup/scan blocks 里的 keys。
+修改 `src/block/iterator.rs`，这一小节，因为有了 encoded block，需要实现 `BlockIterator` 接口，使得用户可以 lookup/scan blocks 里的 keys。
 
 `BlockIterator` 可以被 `Arc<Block>` 实现，如果 `create_and_seek_to_first` 被调用，它会放在 block 的第一个 key。如果 `create_and_seek_to_key` 被调用，iterator 会被放在第一个 `>=` 大于等于相应 key 的位置，比如 `1, 3, 5` 在一个 Block 时
 
@@ -178,3 +178,44 @@ assert_eq!(iter.key(), b"3"); // 此时 iterator 位置在第一个大于等于 
 iterator 应该从 block 拷贝 `key` 并且存到 iterator 本身（未来会有 key compression 压缩的内容），对于值 value，必须在 iterator 存储起始/结束 begin/end offset 偏移，并且不能拷贝。
 
 当 `next` 被调用，iterator 会移动到下一个位置。如果抵达 block 结束位置，可以设置 `key` 为空然后从 `is_valid` 返回 `false`，这样调用者可以切换到另外的 block。
+
+## Task 2: Solution
+
+本节需要实现的函数较多，先观察 `BlockIterator::new` 构造函数，传入一个 `Arc<Block>`，但观察测试，基本都没有使用这个构造函数而是使用 `create_and_...` 等函数。
+
+所以 `create_and_seek_to_first(block: Arc<Block>)` 和 `create_and_seek_to_key(block: Arc<Block>, key: KeySlice)` 都接受一个原子计数引用，调用构造函数，调用相应函数，返回迭代器：
+
+```Rust
+pub fn create_and_seek_to_first(block: Arc<Block>) -> Self {
+    let mut iter = Self::new(block);
+    iter.seek_to_first();
+    iter
+}
+
+/// Creates a block iterator and seek to the first key that >= `key`.
+pub fn create_and_seek_to_key(block: Arc<Block>, key: KeySlice) -> Self {
+    let mut iter = Self::new(block);
+    iter.seek_to_key(key);
+    iter
+}
+```
+
+对于 `key` `value` 函数，直接返回当前的 `entry`:
+
+```Rust
+/// Returns the key of the current entry.
+pub fn key(&self) -> KeySlice {
+    self.key.as_key_slice()
+}
+
+/// Returns the value of the current entry.
+pub fn value(&self) -> &[u8] {
+    &self.block.data[self.value_range.0..self.value_range.1]
+}
+
+/// Returns true if the iterator is valid.
+/// Note: You may want to make use of `key`
+pub fn is_valid(&self) -> bool {
+    !self.key.is_empty()
+}
+```
