@@ -1,5 +1,5 @@
 +++
-title = 'Paper Caladan'
+title = 'Paper Reading: Caladan'
 date = 2024-10-09T10:35:26-04:00
 draft = false
 tags = ['Paper Reading']
