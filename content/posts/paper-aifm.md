@@ -1,5 +1,5 @@
 +++
-title = 'Paper Reading: AIFM: High-Performance, Application-Integrated Far Memory (OSDI '20)'
+title = 'Paper Reading: AIFM: High-Performance, Application-Integrated Far Memory (OSDI 20)'
 date = 2024-11-06T11:28:34-05:00
 draft = false
 tags = ['Paper Reading']
