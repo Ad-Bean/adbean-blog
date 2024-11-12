@@ -109,14 +109,14 @@ theme = "LoveIt"
     url = "/tags/"
     title = ""
     weight = 3
-  [[menu.main]]
-    identifier = "categories"
-    pre = ""
-    post = ""
-    name = "分类"
-    url = "/categories/"
-    title = ""
-    weight = 4
+#  [[menu.main]]
+#    identifier = "categories"
+#    pre = ""
+#    post = ""
+#    name = "分类"
+#    url = "/categories/"
+#    title = ""
+#    weight = 4
 
 # Hugo 解析文档的配置
 [markup]
