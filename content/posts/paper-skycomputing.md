@@ -11,6 +11,8 @@ tags = ['Paper Reading']
 
 相比起传统的云服务，sky computing 更像一个大一统的中间层，比如可以调用不同的云服务。但看他们实验室的项目已经基本都在做 LLM 相关，没有太多 sky computing 的后续了。
 
+作者 Ion 也是 Databricks 的 cofounder，也是 spark 的原作者
+
 ## Abstract
 
 我们考虑云计算的未来，并探讨如何引导其发展成为一个更为连贯的服务，我们称之为天空计算。
