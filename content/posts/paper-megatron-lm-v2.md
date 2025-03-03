@@ -77,7 +77,6 @@ Schedule with Interleaved Stages: 新调度将气泡时间减少了 v 倍，这�
 ### Tensor and Pipeline Model Parallelism
 
 $$
-
 \frac{p - 1}{m} = \frac{n / t - 1}{m}
 $$
 
