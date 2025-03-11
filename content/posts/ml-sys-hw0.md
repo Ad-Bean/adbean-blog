@@ -122,13 +122,10 @@ where $x \in \mathbb{R}^n$ is the input, and $\Theta \in \mathbb{R}^{n \times k}
 the gradient of the linear softmax objective is given by
 
 $$
-\begin{equation}
 \nabla_\Theta \ell_{\mathrm{softmax}}(\Theta^T x, y) = x (z - e_y)^T
-\end{equation} \\
+\\\\
 
-\begin{equation}
 z = \frac{\exp(\Theta^T x)}{1^T \exp(\Theta^T x)} \equiv normalize(\exp(\Theta^T x))
-\end{equation} \\
 $$
 
 Using these gradients, implement the `softmax_regression_epoch()` function, which runs a single epoch of SGD (one pass over a data set) using the specified learning rate / step size `lr` and minibatch size `batch`. As described in the docstring, your function should modify the `Theta` array in-place.
@@ -237,7 +234,7 @@ $$ \text{softmax}(z*i) = \frac{\exp(z_i)}{\sum*{j=1}^{k} \exp(z_j)} $$
 ReLU 的误差计算：
 
 $$
-\nabla_{W_1} \ell_{\mathrm{softmax}}(\mathrm{ReLU}(X W_1) W_2, y) = \frac{1}{m} X^T G_1  \\
+\nabla_{W_1} \ell_{\mathrm{softmax}}(\mathrm{ReLU}(X W_1) W_2, y) = \frac{1}{m} X^T G_1  \\\\
 G_1 \in \mathbb{R}^{m \times d} = \mathrm{1}\{Z_1 > 0\} \circ (G_2 W_2^T)
 $$
 
