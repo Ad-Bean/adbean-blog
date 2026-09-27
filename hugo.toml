@@ -52,7 +52,7 @@ theme = "FixIt"
     defaultHiddenFromHomePage = false
   [params.search]
     enable = true
-    type = "lunr" 
+    type = "fuse"
     contentLength = 4000
     placeholder = ""
     maxResultLength = 10
