@@ -59,6 +59,10 @@ theme = "FixIt"
     snippetLength = 50
     highlightTag = "em"
     absoluteURL = false
+    # 默认 location=0 + distance=100 只匹配字段开头 100 字符，
+    # 正文深处的关键词会漏（实测「查询优化」0 命中）。关掉位置限制。
+    [params.search.fuse]
+      ignoreLocation = true
     [params.search.algolia]
       index = "blog"
       appID = "OKDXG1V1ML"
@@ -114,7 +118,19 @@ theme = "FixIt"
     noClasses = false
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "search"]
+
+# FixIt 的搜索依赖名为 "search" 的输出格式：
+# 模板里 .Site.Home.OutputFormats.Get "search" 取不到时，fuseIndexURL 不会被设置，
+# 搜索就会永远返回空。（LoveIt 时代用的是 "JSON"，FixIt 不认）
+[outputFormats.search]
+  baseName = "search"
+  mediaType = "application/json"
+  rel = "search"
+  isPlainText = true
+  isHTML = false
+  permalinkable = true
+
 [markup.goldmark.extensions.passthrough]
   enable = true
   [markup.goldmark.extensions.passthrough.delimiters]
