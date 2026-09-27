@@ -6,7 +6,7 @@ languageCode = "zh-CN"
 hasCJKLanguage = true
 title = "Adbean's Blog"
 
-theme = "LoveIt"
+theme = "FixIt"
 
 [author]
   name = "Adbean"
@@ -123,3 +123,8 @@ theme = "LoveIt"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)'], ['$', '$']]
