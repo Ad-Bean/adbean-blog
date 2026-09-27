@@ -4,3 +4,10 @@ node_modules
 config.yaml
 
 stash/
+
+# Hugo 构建缓存/产物（可重新生成，不入库）
+resources/_gen/
+.hugo_build.lock
+
+# 编辑器 / 系统
+.DS_Store
