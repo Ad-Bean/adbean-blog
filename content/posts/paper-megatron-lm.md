@@ -2,6 +2,7 @@
 title = 'Paper Reading: Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism'
 date = 2025-02-26T13:19:30-05:00
 draft = false
+categories = ['ML Systems']
 tags = ['Paper Reading', 'Deep Learning', 'Language Models', 'Training']
 +++
 

@@ -2,6 +2,7 @@
 title = 'Paper Reading: AnalyticDB-V'
 date = 2024-02-25T13:00:46-05:00
 draft = false
+categories = ['Database']
 tags = ['Paper Reading']
 +++
 

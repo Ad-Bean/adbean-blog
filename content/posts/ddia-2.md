@@ -1,6 +1,8 @@
 +++
 title = '阅读：DDIA 第二章'
 date = 2024-02-10T18:09:40-05:00
+draft = false
+categories = ['Database']
 tags = ['DDIA', '笔记']
 +++
 

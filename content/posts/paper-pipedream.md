@@ -2,6 +2,7 @@
 title = 'Paper Reading: PipeDream: Generalized Pipeline Parallelism for DNN Training [SOSP2019]'
 date = 2025-02-24T10:49:51-05:00
 draft = false
+categories = ['ML Systems']
 tags = ['Paper Reading', 'Deep Learning', 'Training']
 +++
 

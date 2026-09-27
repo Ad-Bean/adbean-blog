@@ -2,6 +2,7 @@
 title = 'Paper Reading: Bao: Making Learned Query Optimization Practical [SIGMOD 21]'
 date = 2024-03-17T00:14:24-04:00
 draft = false
+categories = ['Learned Data Systems']
 tags = ['Paper Reading']
 +++
 

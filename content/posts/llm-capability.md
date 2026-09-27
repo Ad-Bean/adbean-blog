@@ -2,6 +2,7 @@
 title = 'Paper Reading: DB-BERT: a Database Tuning Tool that “Reads the Manual”'
 date = 2024-02-04T12:38:04-05:00
 draft = false
+categories = ['Learned Data Systems']
 tags = ['Paper Reading']
 +++
 

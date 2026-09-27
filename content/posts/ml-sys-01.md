@@ -2,7 +2,8 @@
 title = 'CMU 10-414/714: Deep Learning Systems (2020) - 深度学习系统 01 Softmax'
 date = 2025-02-05T11:04:50-05:00
 draft = false
-tags = ['Learning Notes', 'Deep Learning']
+categories = ['ML Systems']
+tags = ['笔记', 'Deep Learning']
 +++
 
 ## Deep Learning Systems

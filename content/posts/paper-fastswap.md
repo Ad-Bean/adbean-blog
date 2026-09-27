@@ -2,6 +2,7 @@
 title = 'Paper Reading: Can Far Memory Improve Job Throughput? (Fastswap)'
 date = 2024-11-05T23:12:01-05:00
 draft = false
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

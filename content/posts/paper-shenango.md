@@ -2,6 +2,7 @@
 title = 'Paper Reading: Shenango'
 date = 2024-09-30T00:41:37-04:00
 draft = false
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

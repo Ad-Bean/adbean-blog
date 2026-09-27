@@ -2,6 +2,7 @@
 title = '阅读笔记：微服务架构'
 date = 2024-12-25T15:27:29-05:00
 draft = false
+categories = ['Notes']
 tags = ['Backend']
 +++
 

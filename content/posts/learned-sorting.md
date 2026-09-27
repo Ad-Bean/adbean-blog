@@ -2,6 +2,7 @@
 title = 'Paper Reading: The Case for a Learned Sorting Algorithm [SIGMOD 2020]'
 date = 2024-04-12T20:27:34-04:00
 draft = false
+categories = ['Learned Data Systems']
 tags = ['Paper Reading']
 +++
 

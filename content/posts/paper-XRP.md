@@ -2,6 +2,7 @@
 title = 'Paper XRP'
 date = 2024-09-18T14:19:41-04:00
 draft = true
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

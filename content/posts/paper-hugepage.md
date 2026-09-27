@@ -2,6 +2,7 @@
 title = 'Paper Reading: Temeraire, Hugepage aware memory allocator'
 date = 2024-10-27T13:30:30-04:00
 draft = false
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

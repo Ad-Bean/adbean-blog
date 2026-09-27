@@ -2,6 +2,7 @@
 title = 'Paper Reading: Xen and the Art of Virtualization'
 date = 2024-10-12T14:32:07-04:00
 draft = false
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

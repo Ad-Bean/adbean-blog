@@ -2,6 +2,7 @@
 title = 'Paper Reading: An Inquiry into Machine Learning-based Automatic Configuration Tuning Services on Real-World Database Management Systems'
 date = 2024-04-07T14:22:23-04:00
 draft = false
+categories = ['Learned Data Systems']
 tags = ['Paper Reading']
 +++
 

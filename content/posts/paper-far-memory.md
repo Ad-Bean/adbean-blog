@@ -2,6 +2,7 @@
 title = 'Paper Reading: Software-Defined Far Memory in Warehouse-Scale Computers'
 date = 2024-10-30T12:01:04-04:00
 draft = false
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

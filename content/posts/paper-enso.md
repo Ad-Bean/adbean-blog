@@ -2,6 +2,7 @@
 title = 'Paper Reading: Enso: A Streaming Interface for NIC-Application Communication (OSDI2023)'
 date = 2024-09-30T09:33:11-04:00
 draft = false
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

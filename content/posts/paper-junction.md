@@ -2,6 +2,7 @@
 title = 'Paper Reading: Making Kernel Bypass Practical for the Cloud with Junction'
 date = 2024-10-21T10:02:59-04:00
 draft = false
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

@@ -2,6 +2,7 @@
 title = 'Paper Reading: SEED Domain-Specific Data Curation With Large Language Models'
 date = 2024-03-01T10:42:53-05:00
 draft = false
+categories = ['Learned Data Systems']
 tags = ['Paper Reading']
 +++
 

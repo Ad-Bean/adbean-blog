@@ -2,6 +2,7 @@
 title = 'Paper Reading: The eXpress Data Path'
 date = 2024-09-18T00:00:33-04:00
 draft = false
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

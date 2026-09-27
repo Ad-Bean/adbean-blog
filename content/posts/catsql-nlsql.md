@@ -2,6 +2,7 @@
 title = 'Paper Reading: CatSQL: Towards Real World Natural Language to SQL Applications [VLDB 23]'
 date = 2024-04-14T14:19:15-04:00
 draft = false
+categories = ['Learned Data Systems']
 tags = ['Paper Reading']
 +++
 

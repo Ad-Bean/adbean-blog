@@ -2,6 +2,7 @@
 title = 'Paper Reading: Ownership: A Distributed Futures System for Fine-Grained Tasks'
 date = 2024-11-10T16:27:22-05:00
 draft = false
+categories = ['Distributed']
 tags = ['Paper Reading']
 +++
 

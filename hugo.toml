@@ -18,6 +18,11 @@ theme = "LoveIt"
   description = "Adbean's Blog"
   [params.page.math]
     enable = true
+  [params.author]
+    name = "Adbean"
+    email = "adbeanx@outlook.com"
+    link = "https://github.com/ad-bean"
+
   [params.home]
       [params.home.profile]
           enable = true
@@ -84,14 +89,22 @@ theme = "LoveIt"
     url = "/tags/"
     title = ""
     weight = 3
-#  [[menu.main]]
-#    identifier = "categories"
-#    pre = ""
-#    post = ""
-#    name = "分类"
-#    url = "/categories/"
-#    title = ""
-#    weight = 4
+  [[menu.main]]
+    identifier = "categories"
+    pre = ""
+    post = ""
+    name = "分类"
+    url = "/categories/"
+    title = ""
+    weight = 4
+  [[menu.main]]
+    identifier = "reading-map"
+    pre = ""
+    post = ""
+    name = "阅读地图"
+    url = "/reading-map/"
+    title = "博客的知识索引"
+    weight = 5
 
 # Hugo 解析文档的配置
 [markup]

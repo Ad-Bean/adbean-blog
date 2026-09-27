@@ -2,6 +2,7 @@
 title = 'Mini-LSM Week 1 Day1'
 date = 2024-03-22T14:04:33-04:00
 draft = false
+categories = ['Database']
 tags = ['Database', 'LSM']
 +++
 

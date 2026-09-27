@@ -2,6 +2,7 @@
 title = 'Paper Reading: Spade Synthesizing Assertions for Large Language Model Pipelines'
 date = 2024-03-01T20:26:39-05:00
 draft = false
+categories = ['Learned Data Systems']
 tags = ['Paper Reading']
 +++
 

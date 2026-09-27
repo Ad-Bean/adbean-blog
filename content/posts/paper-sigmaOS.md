@@ -2,6 +2,7 @@
 title = 'Paper Reading: SigmaOS'
 date = 2024-11-07T00:02:10-05:00
 draft = true
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

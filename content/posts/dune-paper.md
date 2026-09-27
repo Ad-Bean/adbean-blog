@@ -2,6 +2,7 @@
 title = 'Paper Reading: Dune'
 date = 2024-09-11T09:10:07-04:00
 draft = false
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

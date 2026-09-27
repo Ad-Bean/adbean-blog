@@ -2,6 +2,7 @@
 title = 'Paper Reading: Zero-Shot Cost Models for Out-of-the-box Learned Cost Prediction [VLDB 2022]'
 date = 2024-03-16T09:58:30-04:00
 draft = false
+categories = ['Learned Data Systems']
 tags = ['Paper Reading']
 +++
 

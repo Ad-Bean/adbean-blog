@@ -2,7 +2,8 @@
 title = '阅读：Ryan Dahl: NodeJS'
 date = 2024-01-30T13:23:51-05:00
 draft = false
-tags = ['阅读']
+categories = ['Notes']
+tags = ['笔记']
 +++
 
 ## NodeJS

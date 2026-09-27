@@ -2,6 +2,7 @@
 title = 'Paper Reading: Rethinking the RDMA Interface for Distributed Systems'
 date = 2024-09-22T16:12:51-04:00
 draft = false
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

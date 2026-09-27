@@ -2,6 +2,7 @@
 title = 'Paper Reading: Efficient Large-Scale Language Model Training on GPU Clusters Using Megatron-LM'
 date = 2025-02-26T22:39:12-05:00
 draft = false
+categories = ['ML Systems']
 tags = ['Paper Reading', 'Deep Learning', 'Language Models', 'Training']
 +++
 

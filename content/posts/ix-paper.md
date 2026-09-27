@@ -2,6 +2,7 @@
 title = 'Paper Reading: IX: A Protected Dataplane Operating System'
 date = 2024-09-15T14:47:50-04:00
 draft = false
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

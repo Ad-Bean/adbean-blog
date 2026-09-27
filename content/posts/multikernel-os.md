@@ -2,6 +2,7 @@
 title = 'Paper Reading: The Multikernel: A New OS Architecture for Scalable Multicore Systems'
 date = 2024-09-08T16:25:59-04:00
 draft = false
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

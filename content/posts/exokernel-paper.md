@@ -2,6 +2,7 @@
 title = 'Paper Reading: Exokernel'
 date = 2024-09-11T01:28:36-04:00
 draft = false
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

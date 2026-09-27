@@ -2,6 +2,7 @@
 title = 'Paper Reading: From Laptop to Lambda: Outsourcing Everyday Jobs to Thousands of Transient Functional Containers'
 date = 2024-11-20T01:09:31-05:00
 draft = false
+categories = ['Distributed']
 tags = ['Paper Reading']
 +++
 

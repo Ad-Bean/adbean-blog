@@ -2,6 +2,7 @@
 title = 'Paper Reading: Firecracker '
 date = 2024-10-16T09:52:03-04:00
 draft = false
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

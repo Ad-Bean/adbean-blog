@@ -2,6 +2,7 @@
 title = 'Paper Reading: ServiceRouter: Hyperscale and Minimal Cost Service Mesh at Meta'
 date = 2024-12-02T09:37:05-05:00
 draft = false
+categories = ['Distributed']
 tags = ['Paper Reading']
 +++
 

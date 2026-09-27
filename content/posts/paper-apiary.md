@@ -2,6 +2,7 @@
 title = 'Paper Reading: Apiary: A DBMS-Integrated Transactional Function-as-a-Service Framework'
 date = 2024-11-16T16:08:33-05:00
 draft = false
+categories = ['Database']
 tags = ['Paper Reading']
 +++
 

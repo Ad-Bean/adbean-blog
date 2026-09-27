@@ -2,7 +2,8 @@
 title = '阅读笔记：人月神话'
 date = 2025-01-13T21:10:08-05:00
 draft = true
-tags = ['阅读笔记']
+categories = ['Notes']
+tags = ['笔记']
 +++
 
 ## 人月神话

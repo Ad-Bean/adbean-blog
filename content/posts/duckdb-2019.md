@@ -2,6 +2,7 @@
 title = 'Paper Reading: DuckDB: an Embeddable Analytical Database'
 date = 2024-06-07T15:37:41+08:00
 draft = false
+categories = ['Database']
 tags = ['Paper Reading']
 +++
 

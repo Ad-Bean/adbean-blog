@@ -2,6 +2,7 @@
 title = 'Paper Reading: The Demikernel Datapath OS Architecture for Microsecond-scale Datacenter Systems'
 date = 2024-09-24T23:02:58-04:00
 draft = false
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

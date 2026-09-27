@@ -2,6 +2,7 @@
 title = 'Paper Reading: From Cloud Computing to Sky Computing'
 date = 2024-12-04T11:25:04-05:00
 draft = false
+categories = ['Distributed']
 tags = ['Paper Reading']
 +++
 

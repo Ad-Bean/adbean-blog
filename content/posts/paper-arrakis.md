@@ -2,6 +2,7 @@
 title = 'Paper Reading: Arrakis'
 date = 2024-09-16T00:22:05-04:00
 draft = false
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

@@ -2,6 +2,7 @@
 title = 'Paper Reading: Scalability! But at what COST'
 date = 2024-09-08T20:25:59-04:00
 draft = false
+categories = ['Distributed']
 tags = ['Paper Reading']
 +++
 

@@ -2,6 +2,7 @@
 title = 'Paper Reading: MB2: Decomposed Behavior Modeling for Self-Driving Database Management Systems'
 date = 2024-04-05T09:50:55-04:00
 draft = false
+categories = ['Learned Data Systems']
 tags = ['Paper Reading']
 +++
 

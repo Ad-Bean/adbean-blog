@@ -2,6 +2,7 @@
 title = 'Paper Reading: ghOSt: Fast & Flexible User-Space Delegation of Linux Scheduling'
 date = 2024-10-07T00:51:29-04:00
 draft = false
+categories = ['OS']
 tags = ['Paper Reading']
 +++
 

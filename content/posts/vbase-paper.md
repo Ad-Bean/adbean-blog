@@ -2,6 +2,7 @@
 title = 'Paper Reading: VBase: Unifying Online Vector Similarity Search and Relational Queries via Relaxed Monotonicity'
 date = 2024-02-17T11:18:45-05:00
 draft = false
+categories = ['Database']
 tags = ['Paper Reading']
 +++
 

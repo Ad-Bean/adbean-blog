@@ -2,6 +2,7 @@
 title = 'Paper Reading: Delta Lake High-Performance ACID Table Storage over Cloud Object Stores'
 date = 2024-11-11T11:24:58-05:00
 draft = false
+categories = ['Database']
 tags = ['Paper Reading']
 +++
 
