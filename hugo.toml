@@ -105,14 +105,6 @@ theme = "FixIt"
     url = "/reading-map/"
     title = "博客的知识索引"
     weight = 5
-  [[menu.main]]
-    identifier = "about"
-    pre = ""
-    post = ""
-    name = "关于"
-    url = "/about/"
-    title = ""
-    weight = 6
 
 # Hugo 解析文档的配置
 [markup]
