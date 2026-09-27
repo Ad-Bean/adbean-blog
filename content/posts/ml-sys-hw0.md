@@ -1,6 +1,7 @@
 +++
 title = 'CMU 10-414/714: Deep Learning Systems (2020) - 深度学习系统 hw0'
 date = 2025-03-04T16:46:50-05:00
+hiddenFromHomePage = true
 draft = false
 categories = ['ML Systems']
 tags = ['笔记', 'Deep Learning']

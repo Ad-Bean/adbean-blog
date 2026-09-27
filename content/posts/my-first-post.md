@@ -1,6 +1,7 @@
 +++
 title = '2024 的一些计划'
 date = 2024-01-04T11:26:22-05:00
+hiddenFromHomePage = true
 draft = false
 categories = ['Notes']
 tags = ['笔记']

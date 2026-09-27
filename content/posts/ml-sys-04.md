@@ -1,6 +1,7 @@
 +++
 title = 'CMU 10-414/714: Deep Learning Systems (2020) - 深度学习系统 Automatic Differentiation Implementation'
 date = 2025-03-08T15:13:36-05:00
+hiddenFromHomePage = true
 draft = true
 categories = ['ML Systems']
 tags = ['笔记', 'Deep Learning']
